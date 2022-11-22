@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import React, {Component} from "react";
-import ContactsRender from './Render/contactsRender';
+import ContactForm from './ContactForm/ContactForm';
+import ContactList from './ContactList/ContactList';
 import Filter from './Filter/Filter';
 
 class App extends Component {
@@ -12,8 +13,6 @@ class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
   }
 
   handleSubmit = (e) => {
@@ -41,33 +40,14 @@ class App extends Component {
 
     return(
     <>
-      <form onSubmit={this.handleSubmit}>
-      <h2>Phonebook</h2>
-      <label>Name<br></br>
-        <input
-        type="text"
-        name="name"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        /><br></br>
-      <label>Number<br></br>
-      <input
-        type="tel"
-        name="number"
-        pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-        /><br></br>
-      </label>
-        <button type="Submit">Add contact</button>
-      </label>
+      <h1>Phonebook</h1>
+      <ContactForm onSubmit={this.handleSubmit}/>
       <h2>Contacts</h2>
       <Filter value={this.state.filter} onChange={this.changeFilter}/>  
       <ul>
-        <ContactsRender contacts={showContacts}/>
+      <ContactList contacts={showContacts}/>
       </ul>
-      </form>
+      
     </>
     
     )

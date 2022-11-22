@@ -1,6 +1,6 @@
 import React from "react";
 
-const ContactsRender = ({contacts}) => (
+const ContactList = ({contacts}) => (
   <ul>
     {contacts.map(({id, name, number}) => (
       <li key={id}>
@@ -11,4 +11,4 @@ const ContactsRender = ({contacts}) => (
 )
 
 
-export default ContactsRender;
+export default ContactList;
