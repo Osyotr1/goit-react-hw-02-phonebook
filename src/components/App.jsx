@@ -19,6 +19,18 @@ class App extends Component {
     e.preventDefault();
     const {name} = e.currentTarget;
     const {number} = e.currentTarget;
+
+    const checkName = this.state.contacts.find(contact => contact.name.toLowerCase() === name.value.toLowerCase());
+    const checkNumber = this.state.contacts.find(contact => contact.number === number.value);
+
+    if(checkName){
+      return alert(`${name.value} is already in contacts.`);
+    };
+
+    if(checkNumber){
+      return alert(`This phone number is already in use.`);
+    }
+    
     const contact = {
       name: name.value,
       number: number.value,

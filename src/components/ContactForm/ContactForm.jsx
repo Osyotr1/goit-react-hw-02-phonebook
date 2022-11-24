@@ -1,4 +1,4 @@
-import React, { Component }from "react";
+import React, { Component } from "react";
 
 class ContactForm extends Component {
     state = {
@@ -6,9 +6,11 @@ class ContactForm extends Component {
         number: ''
     }
     render() {
+    
+    const { onSubmit } = this.props;
 
     return (   
-    <form>
+    <form onSubmit={onSubmit}>
       <label>Name<br></br>
         <input
         type="text"
